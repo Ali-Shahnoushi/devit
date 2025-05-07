@@ -1,2 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@theme {
+  --font-vazir: "Vazirmatn", sans-serif;
+}
+* {
+  @apply !font-vazir;
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #ff943d;
+  --color-secondary: #e04e6d;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #f07a1a;
+  --color-secondary: #d12e51;
+}

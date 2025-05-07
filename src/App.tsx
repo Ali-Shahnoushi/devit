@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import About from "./components/about";
+import Home from "./components/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-teal-500">
-        Hello world!
-      </h1>
-      <button className="btn">Button</button>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>{" "}
+    </BrowserRouter>
   );
 }
 
