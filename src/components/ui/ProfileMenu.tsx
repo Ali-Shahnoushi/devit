@@ -22,7 +22,7 @@ export default function ProfileMenu() {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content shadow-md menu mt-2 dark:!bg-zinc-800 dark:text-white !bg-zinc-100 rounded-box z-1 w-52 p-2 space-y-2"
+        className="dropdown-content shadow-md menu mt-2 dark:!bg-zinc-800 dark:text-white !bg-zinc-100 rounded-box z-50 w-52 p-2 space-y-2"
       >
         <li>
           <a className="w-full flex items-center">

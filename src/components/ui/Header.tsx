@@ -365,7 +365,7 @@ export default function Header() {
             </svg>
             <input
               type="search"
-              className="z-50 bg-base-200"
+              className="z-20 bg-base-200"
               required
               placeholder="دنبال چی می‌گردی..."
             />

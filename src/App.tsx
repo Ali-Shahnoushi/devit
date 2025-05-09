@@ -6,8 +6,21 @@ import "./index.css";
 import AppLayout from "./components/ui/AppLayout";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { useEffect } from "react";
+import useThemeState from "./states/useThemeState";
 
 function App() {
+  const { theme, toggleTheme } = useThemeState((state) => state);
+
+  useEffect(() => {
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+    if (theme === "dark") {
+      document.querySelector("html")?.classList.add("dark");
+    } else {
+      document.querySelector("html")?.classList.remove("dark");
+    }
+  }, [theme, toggleTheme]);
+
   return (
     <BrowserRouter>
       <Routes>

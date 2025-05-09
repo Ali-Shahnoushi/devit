@@ -1,33 +1,21 @@
+import useThemeState from "@/states/useThemeState";
 import React, { useEffect, useState } from "react";
 
 export default function ThemeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useState<string>(
-    localStorage.getItem("theme")
-      ? (localStorage.getItem("theme") as string)
-      : ""
-  );
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { theme, toggleTheme } = useThemeState((state) => state);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const localTheme: string = localStorage.getItem("theme")!;
-
-    document.querySelector("html")?.setAttribute("data-theme", localTheme);
-  }, [theme]);
-
-  const handleToggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setTheme("dark");
+    if (theme === "dark") {
       document.querySelector("html")?.classList.add("dark");
     } else {
       document.querySelector("html")?.classList.remove("dark");
-      setTheme("light");
     }
-  };
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+  }, [theme, toggleTheme]);
 
   return (
     <label className={`swap swap-rotate ${className}`}>
-      <input type="checkbox" onChange={handleToggleTheme} />
+      <input type="checkbox" onChange={toggleTheme} />
 
       <svg
         className="swap-off h-5 w-5 fill-current"
