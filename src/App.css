@@ -2,8 +2,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: light, dark --prefersdark --default;
 }
 
 @theme {
@@ -15,13 +17,21 @@
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: true;
-  --color-primary: #ff943d;
+  --color-primary: #8e51ff;
   --color-secondary: #e04e6d;
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #f07a1a;
+  --color-primary: #7f22fe;
   --color-secondary: #d12e51;
+  --color-base-100: #18181b;
+  --color-base-200: #27272a;
+  --color-base-300: #3f3f47;
+}
+.menu a,
+.menu li,
+.menu button,
+.menu div {
+  @apply active:bg-base-200 active:text-base-content;
 }
