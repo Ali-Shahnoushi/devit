@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchInput() {
   return (
-    <label className="hidden md:flex input border-0 bg-base-200 !outline-primary w-full">
+    <label className="hidden md:flex input border-0 !outline-primary w-full">
       <svg
         className="h-[1em] opacity-50"
         xmlns="http://www.w3.org/2000/svg"
