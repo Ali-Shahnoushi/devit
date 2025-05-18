@@ -1,37 +1,110 @@
-@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+@import 'tailwindcss';
 @plugin "daisyui";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @plugin "daisyui" {
-  themes: light, dark --prefersdark --default;
+    themes:
+        light,
+        dark --prefersdark --default;
 }
 
 @theme {
-  --font-vazir: "Vazirmatn", sans-serif;
+    --font-vazir: 'Vazirmatn', sans-serif;
 }
 * {
-  @apply !font-vazir;
+    @apply !font-vazir;
 }
 
 @plugin "daisyui/theme" {
-  name: "light";
-  --color-primary: #8e51ff;
-  --color-secondary: #e04e6d;
+    name: 'light';
+    --color-primary: #8e51ff;
+    --color-secondary: #e04e6d;
 }
 
 @plugin "daisyui/theme" {
-  name: "dark";
-  --color-primary: #7f22fe;
-  --color-secondary: #d12e51;
-  --color-base-100: #18181b;
-  --color-base-200: #27272a;
-  --color-base-300: #3f3f47;
+    name: 'dark';
+    --color-primary: #7f22fe;
+    --color-secondary: #e3385d;
+    --color-base-100: #18181b;
+    --color-base-200: #27272a;
+    --color-base-300: #3f3f47;
 }
 .menu a,
 .menu li,
 .menu button,
 .menu div {
-  @apply active:bg-base-200 active:text-base-content;
+    @apply active:bg-base-200 active:text-base-content;
+}
+
+/* SweetAlert Styles */
+html.dark .swal2-popup {
+    @apply bg-base-200 text-base-content;
+}
+
+/* Date Picker Styles */
+.panel-jalaali.panel-elevation {
+    @apply bg-base-200;
+}
+.day-span-text {
+    @apply !text-base-content;
+}
+.days-body {
+    @apply !bg-base-100;
+}
+.weekend-day .day-span-text {
+    @apply !text-rose-400;
+}
+.day-item-outer .day.hovered {
+    @apply hover:!bg-base-300;
+}
+.day.highlight {
+    @apply !bg-primary;
+}
+.panel-footer-rtl {
+    @apply !bg-primary;
+}
+.today-text {
+    @apply !text-base-content;
+}
+.panel-header-rtl {
+    @apply !bg-base-200;
+}
+.panel-header-inner .center .iconItem .panel-icon::before,
+.panel-header-inner
+    .panel-date-holder-item-ltr
+    .panel-date-holder-item
+    .panel-header-item-text {
+    @apply !text-base-content;
+}
+.day-label-bar-inner-rtl {
+    @apply !bg-base-300;
+}
+.day-label-bar-inner-rtl .day-label-item {
+    @apply !text-base-content;
+}
+.picker-input-wrapper {
+    @apply !bg-warning;
+}
+.year-item {
+    @apply !text-base-content;
+}
+.year-item.year-item-selected {
+    @apply !bg-amber-500;
+}
+.year-item.year-item-hovered {
+    @apply !bg-base-300;
+}
+.month-item {
+    @apply !text-base-content;
+}
+.month-item.month-item-selected {
+    @apply !bg-amber-500;
+}
+.month-item.month-item-hovered {
+    @apply !bg-base-300;
+}
+.clickable {
+    @apply !text-base-content;
 }
