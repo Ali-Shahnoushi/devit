@@ -2,7 +2,7 @@ import { UserInfo } from '@/types'
 import { apiClient } from '@/utils'
 import { useQuery } from '@tanstack/react-query'
 
-export function useGetUser() {
+export function useGetMe() {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {

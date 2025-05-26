@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import Header from '../components/ui/Header'
+import LoadingLayout from '@/components/ui/LoadingLayout'
+import { useGetMe } from '@/hooks/auth/useGetMe'
 
 export default function About() {
+    const { isLoading, user, isLoggedIn } = useGetMe()
+
+    if (isLoading) return <LoadingLayout isPage={true} />
+
     return (
         <>
-            <Header />
+            <Header isLoggedIn={isLoggedIn} user={user} />
             <span
                 data-aos="fade-down-right"
                 className="bg-secondary/70 absolute top-20 right-80 h-72 w-72 rounded-full blur-[100px]"

@@ -1,14 +1,11 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Header from './Header'
-import SidearApp from './SidearApp'
-import Footer from '../Footer'
 import ProfileSidearApp from './ProfileSidearApp'
 import LoadingLayout from './LoadingLayout'
-import { useGetUser } from '@/hooks/auth/useGetUser'
+import { useGetMe } from '@/hooks/auth/useGetMe'
 
 export default function ProfileLayout() {
-    const { isLoading, user, isLoggedIn } = useGetUser()
+    const { isLoading, user, isLoggedIn } = useGetMe()
 
     if (isLoading) return <LoadingLayout isPage={true} />
 

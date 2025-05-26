@@ -1,6 +1,5 @@
 import CustomFileInput from '@/components/ui/CustomFileInput'
 import LoadingLayout from '@/components/ui/LoadingLayout'
-import { useGetUser } from '@/hooks/auth/useGetUser'
 import { useEffect, useState } from 'react'
 import 'jalaali-react-date-picker/lib/styles/index.css'
 import { InputDatePicker } from 'jalaali-react-date-picker'
@@ -8,9 +7,10 @@ import { Moment } from 'moment'
 import { useUpdateUser } from '@/hooks/users/useUpdateUser'
 import LoadingButton from '@/components/ui/LoadingButton'
 import moment from 'jalali-moment'
+import { useGetMe } from '@/hooks/auth/useGetMe'
 
 export default function Profile() {
-    const { user, isLoading } = useGetUser()
+    const { user, isLoading } = useGetMe()
     const { error, isUpdatingUser, updateUser } = useUpdateUser()
 
     const [firstName, setFirstName] = useState('')

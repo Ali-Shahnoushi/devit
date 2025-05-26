@@ -2,10 +2,10 @@ import { Outlet } from 'react-router-dom'
 import Header from './Header'
 import SidearApp from './SidearApp'
 import Footer from '../Footer'
-import { useGetUser } from '@/hooks/auth/useGetUser'
+import { useGetMe } from '@/hooks/auth/useGetMe'
 import LoadingLayout from './LoadingLayout'
 export default function AppLayout() {
-    const { isLoading, user, isLoggedIn } = useGetUser()
+    const { isLoading, user, isLoggedIn } = useGetMe()
 
     if (isLoading) return <LoadingLayout isPage={true} />
 

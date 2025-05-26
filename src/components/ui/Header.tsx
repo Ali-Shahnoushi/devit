@@ -10,8 +10,6 @@ import Logo from './Logo'
 import ProfileMenu from './ProfileMenu'
 import SearchInput from './SearchInput'
 import NotificationMenu from './NotificationMenu'
-import { useGetUser } from '@/hooks/auth/useGetUser'
-import LoadingLayout from './LoadingLayout'
 import { UserInfo } from '@/types'
 
 export default function Header({
