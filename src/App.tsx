@@ -14,10 +14,11 @@ import VerifiedEmail from './pages/VerifiedEmail'
 import { useRefreshToken } from './hooks/auth/useRefreshToken'
 import SendEmailVerification from './pages/SendEmailVerification'
 import ResetPassword from './pages/ResetPassword'
+import UserProfile from './pages/UserProfile'
+import RouteWrapper from './components/RouteWrapper'
 
 function App() {
     const { theme, toggleTheme } = useThemeState((state) => state)
-    const { refreshUserToken } = useRefreshToken()
 
     useEffect(() => {
         document.querySelector('html')?.setAttribute('data-theme', theme)
@@ -28,41 +29,39 @@ function App() {
         }
     }, [theme, toggleTheme])
 
-    useEffect(() => {
-        const interval = setInterval(
-            () => {
-                refreshUserToken()
-            },
-            60 * 55 * 1000
-        )
-
-        return () => clearInterval(interval)
-    }, [])
+  
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route element={<AppLayout />}>
-                    <Route path="/" element={<Home />} />
-                </Route>
-                <Route path="/about" element={<About />} />
-                <Route path="/sign-in" element={<SignIn />} />
-                <Route path="/sign-up" element={<SignUp />} />
-                <Route
-                    path="/verified/:userId/:token"
-                    element={<VerifiedEmail />}
-                />
-                <Route
-                    path="/email-verification"
-                    element={<SendEmailVerification />}
-                />
-                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/" element={<RouteWrapper />}>
+                    <Route element={<AppLayout />}>
+                        <Route index path="/" element={<Home />} />
+                        <Route
+                            path="/user/:username"
+                            element={<UserProfile />}
+                        />
+                    </Route>
+                    <Route path="/about" element={<About />} />
 
-                <Route path="/dashboard" element={<ProfileLayout />}>
-                    <Route index element={<p>dashboard</p>} />
-                    <Route path="settings" element={<p>settings</p>} />
-                    <Route path="posts" element={<p>posts</p>} />
-                    <Route path="profile" element={<Profile />} />
+                    <Route path="/sign-in" element={<SignIn />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route
+                        path="/verified/:userId/:token"
+                        element={<VerifiedEmail />}
+                    />
+                    <Route
+                        path="/email-verification"
+                        element={<SendEmailVerification />}
+                    />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+
+                    <Route path="/dashboard" element={<ProfileLayout />}>
+                        <Route index element={<p>dashboard</p>} />
+                        <Route path="settings" element={<p>settings</p>} />
+                        <Route path="posts" element={<p>posts</p>} />
+                        <Route path="profile" element={<Profile />} />
+                    </Route>
                 </Route>
             </Routes>{' '}
         </BrowserRouter>

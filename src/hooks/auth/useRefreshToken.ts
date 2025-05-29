@@ -1,12 +1,14 @@
 import { apiClient } from '@/utils'
-import { useMutation } from '@tanstack/react-query'
-import { toast } from 'react-hot-toast'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 export function useRefreshToken() {
+    const queryClient = useQueryClient()
     const {
         mutate: refreshUserToken,
         isPending: isRefreshing,
         error,
+        isError,
+        data,
     } = useMutation({
         mutationFn: async () => {
             return await apiClient.post(`auth/refresh_from_cookie/`)
@@ -14,10 +16,9 @@ export function useRefreshToken() {
         onSuccess: (res) => {
             console.log('refresh token success:', res)
         },
-        onError: (error: any) => {
-            console.error('refresh error:', error)
+        onError: (error: any) => {            queryClient.invalidateQueries({ queryKey: ['user'] })
         },
     })
 
-    return { refreshUserToken, isRefreshing, error }
+    return { refreshUserToken, isRefreshing, error, data, isError }
 }
