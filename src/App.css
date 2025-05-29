@@ -21,6 +21,9 @@
     name: 'light';
     --color-primary: #8e51ff;
     --color-secondary: #e04e6d;
+    --color-error: #e63946;
+    --color-success: #43aa8b;
+    /* --color-base-content: #fff; */
 }
 
 @plugin "daisyui/theme" {
@@ -30,6 +33,8 @@
     --color-base-100: #18181b;
     --color-base-200: #27272a;
     --color-base-300: #3f3f47;
+    --color-error: #ff4958;
+    --color-success: #57d6b0;
 }
 .menu a,
 .menu li,
@@ -107,4 +112,10 @@ html.dark .swal2-popup {
 }
 .clickable {
     @apply !text-base-content;
+}
+.bg-profile {
+    background-image: url('https://img.freepik.com/free-photo/computer-program-coding-screen_53876-138060.jpg?semt=ais_hybrid&w=740');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
