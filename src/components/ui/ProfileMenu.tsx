@@ -29,7 +29,7 @@ export default function ProfileMenu({
                     <div className="ring-primary w-8 rounded-full ring-2 md:w-10">
                         <img
                             src={
-                                user?.avatar
+                                user?.avatar && isLoggedIn
                                     ? `http://localhost:8000${user.avatar}`
                                     : 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'
                             }
@@ -44,22 +44,20 @@ export default function ProfileMenu({
                 {isLoggedIn ? (
                     <>
                         <li>
-                            <span className="flex w-full items-center">
-                                <FiUser size={20} />
-                                <span>
-                                    <Link to="/dashboard">پروفایل</Link>
+                            <Link to="/dashboard">
+                                <span className="flex w-full items-center gap-2">
+                                    <FiUser size={20} />
+                                    <span>پروفایل</span>
                                 </span>
-                            </span>
+                            </Link>
                         </li>
                         <li>
-                            <span className="flex w-full items-center">
-                                <IoSettingsOutline size={20} />
-                                <span>
-                                    <Link to="/dashboard/settings/">
-                                        تنظیمات
-                                    </Link>
+                            <Link to="/dashboard/settings/">
+                                <span className="flex w-full items-center gap-2">
+                                    <IoSettingsOutline size={20} />
+                                    <span>تنظیمات</span>
                                 </span>
-                            </span>
+                            </Link>
                         </li>
                         <li
                             onClick={() => {
@@ -92,12 +90,12 @@ export default function ProfileMenu({
                 ) : (
                     <>
                         <li>
-                            <span className="flex w-full items-center">
-                                <IoLogInOutline size={20} />
-                                <span>
-                                    <Link to="/sign-in">ورود |‌ ثبت‌نام</Link>
+                            <Link to="/sign-in">
+                                <span className="flex w-full items-center">
+                                    <IoLogInOutline size={20} />
+                                    <span>ورود |‌ ثبت‌نام</span>
                                 </span>
-                            </span>
+                            </Link>
                         </li>
                     </>
                 )}
