@@ -85,6 +85,7 @@ export default function SendEmailVerification() {
                         />
 
                         <LoadingButton
+                            iconSize="lg"
                             isLoading={isSendingVerification}
                             label="ارسال ایمیل"
                         />

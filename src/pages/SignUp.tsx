@@ -99,6 +99,7 @@ export default function SignUp() {
                             />
 
                             <LoadingButton
+                            iconSize='lg'
                                 isLoading={isSigningUp}
                                 label="ثبت‌نام"
                             />

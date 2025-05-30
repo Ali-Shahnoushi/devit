@@ -176,6 +176,7 @@ export default function Profile() {
                 </fieldset>
                 <span className="w-1/5">
                     <LoadingButton
+                        iconSize="md"
                         onClickHandler={updateUserHandler}
                         isLoading={isUpdatingUser}
                         label="ذخیره"

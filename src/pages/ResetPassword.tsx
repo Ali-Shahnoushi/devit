@@ -132,6 +132,7 @@ export default function ResetPassword() {
                                     validations={validations.email}
                                 />
                                 <LoadingButton
+                                    iconSize="lg"
                                     disabled={!timeIsUp}
                                     isLoading={isSendingOtp}
                                     label="ارسال رمز یکبار مصرف"
@@ -180,6 +181,7 @@ export default function ResetPassword() {
                                     validations={validations.passwordRepeat}
                                 />
                                 <LoadingButton
+                                    iconSize="lg"
                                     isLoading={isCheckingOtp}
                                     label="تغییر رمز عبور"
                                 />

@@ -86,7 +86,7 @@ export default function SignIn() {
                             validations={validations.password}
                         />
 
-                        <LoadingButton isLoading={isSigningIn} label="ورود" />
+                        <LoadingButton iconSize='lg' isLoading={isSigningIn} label="ورود" />
                         <span className="m-0 flex items-center justify-start gap-1 text-sm">
                             <p> هنوز ثبت‌نام نکردی؟ </p>
                             <Link className="text-secondary" to="/sign-up">
