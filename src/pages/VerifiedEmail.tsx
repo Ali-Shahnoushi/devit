@@ -30,7 +30,7 @@ export default function VerifiedEmail() {
                 className="fixed bottom-20 left-60 h-72 w-72 rounded-full bg-teal-500 blur-[250px]"
             ></span>
 
-            {isSuccess ? <SuccessVerified /> : <FailedVerify />}
+            {isSuccess && !isVerifying ? <SuccessVerified /> : <FailedVerify />}
         </div>
     )
 }
