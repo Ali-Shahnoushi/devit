@@ -61,13 +61,7 @@ export default function Profile() {
                 <fieldset className="fieldset flex w-full items-center gap-2">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
-                            <img
-                                src={
-                                    avatar
-                                        ? `http://localhost:8000${avatar}`
-                                        : 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'
-                                }
-                            />
+                            <img src={avatar} />
                         </div>
                     </div>
                     <legend className="fieldset-legend">تصویر پروفایل</legend>
