@@ -30,7 +30,7 @@ export default function ProfileMenu({
                         <img
                             src={
                                 user?.avatar && isLoggedIn
-                                    ? `http://localhost:8000${user.avatar}`
+                                    ? user.avatar
                                     : 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'
                             }
                         />
