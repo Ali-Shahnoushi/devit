@@ -1,18 +1,24 @@
 import { UserInfo } from '@/types'
 import { apiClient } from '@/utils'
 import { useQuery } from '@tanstack/react-query'
+import { AxiosError } from 'axios'
 
 export function useGetMe() {
-    const { data, isLoading, isError } = useQuery({
+    const { data, isLoading, isError, error } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const response = await apiClient.get('auth/me/')
-
-            console.log('response data :', response.data.data)
-
-            return response.data.data as UserInfo
+            try {
+                const response = await apiClient.get('auth/me/')
+                return response.data.data as UserInfo
+            } catch (err) {
+                const axiosError = err as AxiosError
+                if (axiosError.response?.status === 401) {
+                    return null
+                }
+                throw err
+            }
         },
-        retry: false, // برای اینکه روی خطای 401 دوباره سعی نکنه
+        retry: false,
     })
 
     const isLoggedIn = !isError && !!data
