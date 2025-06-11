@@ -26,8 +26,7 @@ export function useUpdateUser() {
             queryClient.invalidateQueries({ queryKey: ['user'] })
         },
         onError: (error: any) => {
-            console.error('Signup error:', error)
-            // toast.error(error.response?.data?.message.username || "خطا در ثبت‌نام");
+            console.error('user update error:', error)
         },
     })
 
